@@ -61,8 +61,10 @@ void add_vectors() {
     // We need to launch at LEAST as many threads as we have elements
     // This equation pads an extra CTA to the grid if N cannot evenly be divided
     // by NUM_THREADS (e.g. N = 1025, NUM_THREADS = 1024)
-//    auto N_BLOCKS = static_cast<int>(ceil(static_cast<double>(ARR_SIZE) / static_cast<double>(N_THREADS_PER_BLOCK)));
-    int N_BLOCKS = (ARR_SIZE + N_THREADS_PER_BLOCK - 1) / N_THREADS_PER_BLOCK;
+    const auto N_BLOCKS = static_cast<size_t>(
+            ceil(static_cast<double>(ARR_SIZE) / static_cast<double>(N_THREADS_PER_BLOCK))
+            );
+//    int N_BLOCKS = (ARR_SIZE + N_THREADS_PER_BLOCK - 1) / N_THREADS_PER_BLOCK;
 
     add_vec<<<N_BLOCKS, N_THREADS_PER_BLOCK>>>(dev_a, dev_b, dev_c, ARR_SIZE);
 
