@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.19)
+project(cuda_tutorial CUDA)
+
+set(CMAKE_CUDA_STANDARD 14)
+
+add_executable(cuda_tutorial main.cu add_vectors/baseline/add_vectors.cu add_vectors/baseline/add_vectors.h)
+
+set_target_properties(
+        cuda_tutorial
+        PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
