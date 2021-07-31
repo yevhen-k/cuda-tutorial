@@ -3,7 +3,9 @@ project(cuda_tutorial CUDA)
 
 set(CMAKE_CUDA_STANDARD 14)
 
-add_executable(cuda_tutorial main.cu add_vectors/baseline/add_vectors.cu add_vectors/baseline/add_vectors.h)
+add_executable(cuda_tutorial main.cu
+        add_vectors/baseline/add_vectors.cu add_vectors/baseline/add_vectors.h
+        add_vectors/pinned_memory/add_vec_pinned_mem.h add_vectors/pinned_memory/add_vec_pinned_mem.cu)
 
 set_target_properties(
         cuda_tutorial
