@@ -83,5 +83,5 @@ void add_vectors() {
     cudaFree(dev_b);
     cudaFree(dev_c);
 
-    std::cout << "SUCCESS" << std::endl;
+    std::cout << "ADD_VECTORS COMPLETED" << std::endl;
 }
